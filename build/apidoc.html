@@ -1,0 +1,1350 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/scottgonzalez/node-wordpress"
+
+    >wordpress (v1.4.0)</a>
+</h1>
+<h4>A client for working with WordPress.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wordpress">module wordpress</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client">
+            function <span class="apidocSignatureSpan">wordpress.</span>Client
+            <span class="apidocSignatureSpan">( settings )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.createClient">
+            function <span class="apidocSignatureSpan">wordpress.</span>createClient
+            <span class="apidocSignatureSpan">( settings )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">wordpress.</span>Client.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">wordpress.</span>fieldMap</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wordpress.Client">module wordpress.Client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.Client">
+            function <span class="apidocSignatureSpan">wordpress.</span>Client
+            <span class="apidocSignatureSpan">( settings )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.parseUrl">
+            function <span class="apidocSignatureSpan">wordpress.Client.</span>parseUrl
+            <span class="apidocSignatureSpan">( wpUrl )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wordpress.Client.prototype">module wordpress.Client.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.authenticatedCall">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>authenticatedCall
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.call">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>call
+            <span class="apidocSignatureSpan">( method )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.deletePost">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>deletePost
+            <span class="apidocSignatureSpan">( id, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.deleteTerm">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>deleteTerm
+            <span class="apidocSignatureSpan">( taxonomy, id, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.editPost">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>editPost
+            <span class="apidocSignatureSpan">( id, data, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.editTerm">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>editTerm
+            <span class="apidocSignatureSpan">( id, data, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getMediaItem">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getMediaItem
+            <span class="apidocSignatureSpan">( id, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getMediaLibrary">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getMediaLibrary
+            <span class="apidocSignatureSpan">( filter, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getPost">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPost
+            <span class="apidocSignatureSpan">( id, fields, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getPostType">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPostType
+            <span class="apidocSignatureSpan">( name, fields, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getPostTypes">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPostTypes
+            <span class="apidocSignatureSpan">( filter, fields, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getPosts">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPosts
+            <span class="apidocSignatureSpan">( filter, fields, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getTaxonomies">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTaxonomies
+            <span class="apidocSignatureSpan">( fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getTaxonomy">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTaxonomy
+            <span class="apidocSignatureSpan">( name, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getTerm">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTerm
+            <span class="apidocSignatureSpan">( taxonomy, id, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.getTerms">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTerms
+            <span class="apidocSignatureSpan">( taxonomy, filter, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.listMethods">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>listMethods
+            <span class="apidocSignatureSpan">( fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.newPost">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>newPost
+            <span class="apidocSignatureSpan">( data, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.newTerm">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>newTerm
+            <span class="apidocSignatureSpan">( data, fn )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.Client.prototype.uploadFile">
+            function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>uploadFile
+            <span class="apidocSignatureSpan">( data, fn )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wordpress.fieldMap">module wordpress.fieldMap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.fieldMap.array">
+            function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>array
+            <span class="apidocSignatureSpan">( data, type )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.fieldMap.from">
+            function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>from
+            <span class="apidocSignatureSpan">( data, type )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wordpress.fieldMap.to">
+            function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>to
+            <span class="apidocSignatureSpan">( data, type )</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wordpress" id="apidoc.module.wordpress">module wordpress</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client" id="apidoc.element.wordpress.Client">
+        function <span class="apidocSignatureSpan">wordpress.</span>Client
+        <span class="apidocSignatureSpan">( settings )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client( settings ) {
+	[ &#x22;url&#x22;, &#x22;username&#x22;, &#x22;password&#x22; ].forEach(function( prop ) {
+		if ( !settings.hasOwnProperty( prop ) ) {
+			throw new Error( &#x22;Missing required setting: &#x22; + prop );
+		}
+	});
+
+	var parsedUrl = Client.parseUrl( settings.url );
+	this.rpc = xmlrpc[ parsedUrl.secure ? &#x22;createSecureClient&#x22; : &#x22;createClient&#x22; ]({
+		host: settings.host || parsedUrl.host,
+		port: parsedUrl.port,
+		path: parsedUrl.path,
+		rejectUnauthorized: settings.rejectUnauthorized !== undefined ? settings.rejectUnauthorized : true,
+
+		// Always set Host header in case we&#x27;re pointing to a different server
+		// via settings.host
+		headers: {
+			Host: parsedUrl.host
+		},
+		basic_auth: !settings.basicAuth ? null : {
+			user: settings.basicAuth.username,
+			pass: settings.basicAuth.password
+		}
+	});
+	this.blogId = settings.blogId || 0;
+	this.username = settings.username;
+	this.password = settings.password;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.createClient" id="apidoc.element.wordpress.createClient">
+        function <span class="apidocSignatureSpan">wordpress.</span>createClient
+        <span class="apidocSignatureSpan">( settings )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createClient = function ( settings ) {
+		return new Client( settings );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+## Usage
+
+```js
+var wordpress = require( &#x22;wordpress&#x22; );
+var client = wordpress.<span class="apidocCodeKeywordSpan">createClient</span>({
+	url: &#x22;my-site.com&#x22;,
+	username: &#x22;admin&#x22;,
+	password: &#x22;secret&#x22;
+});
+
+client.getPosts(function( error, posts ) {
+	console.log( &#x22;Found &#x22; + posts.length + &#x22; posts!&#x22; );
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wordpress.Client" id="apidoc.module.wordpress.Client">module wordpress.Client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.Client" id="apidoc.element.wordpress.Client.Client">
+        function <span class="apidocSignatureSpan">wordpress.</span>Client
+        <span class="apidocSignatureSpan">( settings )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client( settings ) {
+	[ &#x22;url&#x22;, &#x22;username&#x22;, &#x22;password&#x22; ].forEach(function( prop ) {
+		if ( !settings.hasOwnProperty( prop ) ) {
+			throw new Error( &#x22;Missing required setting: &#x22; + prop );
+		}
+	});
+
+	var parsedUrl = Client.parseUrl( settings.url );
+	this.rpc = xmlrpc[ parsedUrl.secure ? &#x22;createSecureClient&#x22; : &#x22;createClient&#x22; ]({
+		host: settings.host || parsedUrl.host,
+		port: parsedUrl.port,
+		path: parsedUrl.path,
+		rejectUnauthorized: settings.rejectUnauthorized !== undefined ? settings.rejectUnauthorized : true,
+
+		// Always set Host header in case we&#x27;re pointing to a different server
+		// via settings.host
+		headers: {
+			Host: parsedUrl.host
+		},
+		basic_auth: !settings.basicAuth ? null : {
+			user: settings.basicAuth.username,
+			pass: settings.basicAuth.password
+		}
+	});
+	this.blogId = settings.blogId || 0;
+	this.username = settings.username;
+	this.password = settings.password;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.parseUrl" id="apidoc.element.wordpress.Client.parseUrl">
+        function <span class="apidocSignatureSpan">wordpress.Client.</span>parseUrl
+        <span class="apidocSignatureSpan">( wpUrl )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseUrl = function ( wpUrl ) {
+	var urlParts, secure;
+
+	// allow URLs without a protocol
+	if ( !(/\w+:\/\//.test( wpUrl ) ) ) {
+		wpUrl = &#x22;http://&#x22; + wpUrl;
+	}
+	urlParts = url.parse( wpUrl );
+	secure = urlParts.protocol === &#x22;https:&#x22;;
+
+	return {
+		host: urlParts.hostname,
+		port: urlParts.port || (secure ? 443 : 80),
+		path: urlParts.path.replace( /\/+$/, &#x22;&#x22; ) + &#x22;/xmlrpc.php&#x22;,
+		secure: secure
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wordpress.Client.prototype" id="apidoc.module.wordpress.Client.prototype">module wordpress.Client.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.authenticatedCall" id="apidoc.element.wordpress.Client.prototype.authenticatedCall">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>authenticatedCall
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">authenticatedCall = function () {
+		var args = [].slice.call( arguments );
+		args.splice( 1, 0, this.blogId, this.username, this.password );
+		this.call.apply( this, args );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Invokes a method.
+
+* `method`: The method to call.
+* `args` (optional): Arguments to pass to the method.
+* `callback` (`function( error [, data] )`): A callback to invoke when the API call is complete.
+  * `data`: Data returned by the method.
+
+#### client.<span class="apidocCodeKeywordSpan">authenticatedCall</span>( method [, args... ], callback )
+
+Invokes a method with the username and password provided by the client.
+
+* `method`: The method to call.
+* `args` (optional): Arguments to pass to the method.
+* `callback` (`function( error [, data] )`): A callback to invoke when the API call is complete.
+* `data`: Data returned by the method.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.call" id="apidoc.element.wordpress.Client.prototype.call">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>call
+        <span class="apidocSignatureSpan">( method )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">call = function ( method ) {
+		var args = parseArguments( arguments ),
+			fn = args.pop();
+
+		if ( typeof fn !== &#x22;function&#x22; ) {
+			args.push( fn );
+			fn = null;
+		}
+
+		this.rpc.methodCall( method, args, function( error, data ) {
+			if ( !error ) {
+				return fn( null, data );
+			}
+
+			if ( error.code === &#x22;ENOTFOUND&#x22; &#x26;&#x26; error.syscall === &#x22;getaddrinfo&#x22; ) {
+				error.message = &#x22;Unable to connect to WordPress.&#x22;;
+			} else if ( error.message === &#x22;Unknown XML-RPC tag &#x27;TITLE&#x27;&#x22; ) {
+				var additional = error.res.statusCode;
+				if (error.res.statusMessage) {
+					additional += &#x22;; &#x22; + error.res.statusMessage;
+				}
+
+				error.message = &#x22;(&#x22; + additional + &#x22;) &#x22; + error.message;
+			}
+
+			fn( error );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### client.listMethods( callback )
+
+Gets a list of all avaialble methods.
+
+* `callback` (`function( error, methods )`): A callback to invoke when the API call is complete.
+* `methods`: An array of methods.
+
+#### client.<span class="apidocCodeKeywordSpan">call</span>( method [, args... ], callback )
+
+Invokes a method.
+
+* `method`: The method to call.
+* `args` (optional): Arguments to pass to the method.
+* `callback` (`function( error [, data] )`): A callback to invoke when the API call is complete.
+* `data`: Data returned by the method.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.deletePost" id="apidoc.element.wordpress.Client.prototype.deletePost">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>deletePost
+        <span class="apidocSignatureSpan">( id, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deletePost = function ( id, fn ) {
+		this.authenticatedCall( &#x22;wp.deletePost&#x22;, id, fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Edits an existing post.
+
+* `id`: The ID of the post to edit.
+* `data`: The data to update on the post.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+
+#### client.<span class="apidocCodeKeywordSpan">deletePost</span>( id, callback )
+
+Deletes a post.
+
+*NOTE:* Deleting a post may move it to the trash and then deleting a second time will actually delete.
+
+* `id`: The ID of the post to delete.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.deleteTerm" id="apidoc.element.wordpress.Client.prototype.deleteTerm">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>deleteTerm
+        <span class="apidocSignatureSpan">( taxonomy, id, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteTerm = function ( taxonomy, id, fn ) {
+		this.authenticatedCall( &#x22;wp.deleteTerm&#x22;, taxonomy, id, fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Edits an existing taxonomy term.
+
+* `id`: The ID of the taxonomy term to edit.
+* `data`: The data to update on the taxonomy.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+
+#### client.<span class="apidocCodeKeywordSpan">deleteTerm</span>( taxonomy, id, callback )
+
+Deletes a taxonomy term.
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `id`: The ID of the taxonomy term to delete.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.editPost" id="apidoc.element.wordpress.Client.prototype.editPost">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>editPost
+        <span class="apidocSignatureSpan">( id, data, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">editPost = function ( id, data, fn ) {
+		this.authenticatedCall( &#x22;wp.editPost&#x22;, id, fieldMap.to( data, &#x22;post&#x22; ), fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Creates a new post.
+
+* `data`: The data for the new post.
+* `callback` (`function( error, id )`): A callback to invoke when the API call is complete.
+  * `id`: The ID of the new post.
+
+#### client.<span class="apidocCodeKeywordSpan">editPost</span>( id, data, callback )
+
+Edits an existing post.
+
+* `id`: The ID of the post to edit.
+* `data`: The data to update on the post.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.editTerm" id="apidoc.element.wordpress.Client.prototype.editTerm">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>editTerm
+        <span class="apidocSignatureSpan">( id, data, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">editTerm = function ( id, data, fn ) {
+		this.authenticatedCall( &#x22;wp.editTerm&#x22;, id, fieldMap.to( data, &#x22;term&#x22; ), fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Creates a new taxonomy term.
+
+* `data`: The data for the new taxonomy term.
+* `callback` (`function( error, id )`): A callback to invoke when the API call is complete.
+  * `id`: The ID of the new taxonomy term.
+
+#### client.<span class="apidocCodeKeywordSpan">editTerm</span>( id, data, callback )
+
+Edits an existing taxonomy term.
+
+* `id`: The ID of the taxonomy term to edit.
+* `data`: The data to update on the taxonomy.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getMediaItem" id="apidoc.element.wordpress.Client.prototype.getMediaItem">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getMediaItem
+        <span class="apidocSignatureSpan">( id, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMediaItem = function ( id, fn ) {
+		this.authenticatedCall( &#x22;wp.getMediaItem&#x22;, id, function( error, media ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.from( media, &#x22;media&#x22; ) );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `id`: The ID of the taxonomy term to delete.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+
+### Media
+
+#### client.<span class="apidocCodeKeywordSpan">getMediaItem</span>( id, callback )
+
+Gets a piece of media by ID.
+
+* `id`: The ID of the piece of media to get.
+* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
+
+#### client.getMediaLibrary( [filter], callback )
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getMediaLibrary" id="apidoc.element.wordpress.Client.prototype.getMediaLibrary">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getMediaLibrary
+        <span class="apidocSignatureSpan">( filter, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMediaLibrary = function ( filter, fn ) {
+		if ( typeof filter === &#x22;function&#x22; ) {
+			fn = filter;
+			filter = {};
+		}
+
+		this.authenticatedCall( &#x22;wp.getMediaLibrary&#x22;, filter, function( error, media ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, media.map(function( item ) {
+				return fieldMap.from( item, &#x22;media&#x22; );
+			}));
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### client.getMediaItem( id, callback )
+
+Gets a piece of media by ID.
+
+* `id`: The ID of the piece of media to get.
+* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
+
+#### client.<span class="apidocCodeKeywordSpan">getMediaLibrary</span>( [filter], callback )
+
+* `filter` (optional): A hash of key/value pairs for filtering which posts to get.
+* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
+
+#### client.uploadFile( data, callback )
+
+Uploads a file to Wordpress.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getPost" id="apidoc.element.wordpress.Client.prototype.getPost">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPost
+        <span class="apidocSignatureSpan">( id, fields, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPost = function ( id, fields, fn ) {
+		if ( typeof fields === &#x22;function&#x22; ) {
+			fn = fields;
+			fields = null;
+		}
+
+		if ( fields ) {
+			fields = fieldMap.array( fields, &#x22;post&#x22; );
+		}
+
+		this.authenticatedCall( &#x22;wp.getPost&#x22;, id, fields, function( error, post ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.from( post, &#x22;post&#x22; ) );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### wordpress.Client
+
+The constructor used for client connections. Useful for creating extensions.
+
+### Posts
+
+#### client.<span class="apidocCodeKeywordSpan">getPost</span>( id [, fields], callback )
+
+Gets a post by ID.
+
+* `id`: The ID of the post to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, post )`): A callback to invoke when the API call is complete.
+* `post`: An object containing the post data.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getPostType" id="apidoc.element.wordpress.Client.prototype.getPostType">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPostType
+        <span class="apidocSignatureSpan">( name, fields, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPostType = function ( name, fields, fn ) {
+		if ( typeof fields === &#x22;function&#x22; ) {
+			fn = fields;
+			fields = null;
+		}
+
+		if ( fields ) {
+			fields = fieldMap.array( fields, &#x22;postType&#x22; );
+		}
+
+		this.authenticatedCall( &#x22;wp.getPostType&#x22;, name, fields, function( error, postType ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.from( postType, &#x22;postType&#x22; ) );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Deletes a post.
+
+*NOTE:* Deleting a post may move it to the trash and then deleting a second time will actually delete.
+
+* `id`: The ID of the post to delete.
+* `callback` (`function( error )`): A callback to invoke when the API call is complete.
+
+#### client.<span class="apidocCodeKeywordSpan">getPostType</span>( name, [, fields], callback )
+
+Gets a post type by name.
+
+* `name`: The name of the post type to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, postType )`): A callback to invoke when the API call is complete.
+* `postType`: An object containing the post type data.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getPostTypes" id="apidoc.element.wordpress.Client.prototype.getPostTypes">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPostTypes
+        <span class="apidocSignatureSpan">( filter, fields, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPostTypes = function ( filter, fields, fn ) {
+		if ( typeof filter === &#x22;function&#x22; ) {
+			fn = filter;
+			fields = null;
+			filter = {};
+		}
+
+		if ( typeof fields === &#x22;function&#x22; ) {
+			fn = fields;
+			fields = null;
+		}
+
+		if ( Array.isArray(filter) ) {
+			fields = filter;
+			filter = {};
+		}
+
+		if ( fields ) {
+			fields = fieldMap.array( fields, &#x22;postType&#x22; );
+		}
+
+		this.authenticatedCall( &#x22;wp.getPostTypes&#x22;, filter, fields, function( error, postTypes ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			Object.keys( postTypes ).forEach(function( postType ) {
+				postTypes[ postType ] = fieldMap.from( postTypes[ postType ], &#x22;postType&#x22; );
+			});
+			fn( null, postTypes );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Gets a post type by name.
+
+* `name`: The name of the post type to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, postType )`): A callback to invoke when the API call is complete.
+* `postType`: An object containing the post type data.
+
+#### client.<span class="apidocCodeKeywordSpan">getPostTypes</span>( [filter], [, fields], callback )
+
+Gets all post types.
+
+* `filter` (optional): A hash of key/value pairs for filtering which posts types to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, postTypes )`): A callback to invoke when the API call is complete.
+* `postTypes`: An array containing the post types.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getPosts" id="apidoc.element.wordpress.Client.prototype.getPosts">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getPosts
+        <span class="apidocSignatureSpan">( filter, fields, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPosts = function ( filter, fields, fn ) {
+		if ( typeof filter === &#x22;function&#x22; ) {
+			fn = filter;
+			fields = null;
+			filter = {};
+		}
+
+		if ( typeof fields === &#x22;function&#x22; ) {
+			fn = fields;
+			fields = null;
+		}
+
+		if ( filter.type ) {
+			filter.post_type = filter.type;
+			delete filter.type;
+		}
+
+		if ( filter.status ) {
+			filter.post_status = filter.status;
+			delete filter.status;
+		}
+
+		if ( filter.orderby ) {
+			filter.orderby = fieldMap.array( [ filter.orderby ], &#x22;post&#x22; )[ 0 ];
+		}
+
+		if ( fields ) {
+			fields = fieldMap.array( fields, &#x22;post&#x22; );
+		}
+
+		this.authenticatedCall( &#x22;wp.getPosts&#x22;, filter, fields, function( error, posts ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, posts.map(function( post ) {
+				return fieldMap.from( post, &#x22;post&#x22; );
+			}));
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var wordpress = require( &#x22;wordpress&#x22; );
+var client = wordpress.createClient({
+	url: &#x22;my-site.com&#x22;,
+	username: &#x22;admin&#x22;,
+	password: &#x22;secret&#x22;
+});
+
+client.<span class="apidocCodeKeywordSpan">getPosts</span>(function( error, posts ) {
+	console.log( &#x22;Found &#x22; + posts.length + &#x22; posts!&#x22; );
+});
+```
+
+More usage examples can be found in the `examples` directory.
+
+### Full Site Synchronization
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getTaxonomies" id="apidoc.element.wordpress.Client.prototype.getTaxonomies">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTaxonomies
+        <span class="apidocSignatureSpan">( fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTaxonomies = function ( fn ) {
+		this.authenticatedCall( &#x22;wp.getTaxonomies&#x22;, function( error, taxonomies ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, taxonomies.map(function( taxonomy ) {
+				return fieldMap.from( taxonomy, &#x22;taxonomy&#x22; );
+			}));
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Gets a taxonomy by name.
+
+* `name`: The name of the taxonomy to get.
+* `callback` (`function( error, taxonomy )`): A callback to invoke when the API call is complete.
+  * `taxonomy`: An object containing the taxonomy data.
+
+#### client.<span class="apidocCodeKeywordSpan">getTaxonomies</span>( callback )
+
+Gets all taxonomies.
+
+* `callback` (`function( error, taxonomies )`): A callback to invoke when the API call is complete.
+  * `taxonomies`: An array containing the taxonomies.
+
+#### client.getTerm( taxonomy, id, callback )
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getTaxonomy" id="apidoc.element.wordpress.Client.prototype.getTaxonomy">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTaxonomy
+        <span class="apidocSignatureSpan">( name, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTaxonomy = function ( name, fn ) {
+		this.authenticatedCall( &#x22;wp.getTaxonomy&#x22;, name, function( error, taxonomy ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.from( taxonomy, &#x22;taxonomy&#x22; ) );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `filter` (optional): A hash of key/value pairs for filtering which posts types to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, postTypes )`): A callback to invoke when the API call is complete.
+* `postTypes`: An array containing the post types.
+
+### Taxonomies
+
+#### client.<span class="apidocCodeKeywordSpan">getTaxonomy</span>( name, callback )
+
+Gets a taxonomy by name.
+
+* `name`: The name of the taxonomy to get.
+* `callback` (`function( error, taxonomy )`): A callback to invoke when the API call is complete.
+* `taxonomy`: An object containing the taxonomy data.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getTerm" id="apidoc.element.wordpress.Client.prototype.getTerm">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTerm
+        <span class="apidocSignatureSpan">( taxonomy, id, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTerm = function ( taxonomy, id, fn ) {
+		this.authenticatedCall( &#x22;wp.getTerm&#x22;, taxonomy, id, function( error, term ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.from( term, &#x22;term&#x22; ) );
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### client.getTaxonomies( callback )
+
+Gets all taxonomies.
+
+* `callback` (`function( error, taxonomies )`): A callback to invoke when the API call is complete.
+* `taxonomies`: An array containing the taxonomies.
+
+#### client.<span class="apidocCodeKeywordSpan">getTerm</span>( taxonomy, id, callback )
+
+Gets a taxonomy term by ID.
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `id`: The ID of the term to get.
+* `callback` (`function( error, term )`): A callback to invoke when the API call is complete.
+* `term`: An object containing the taxonomy term data.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.getTerms" id="apidoc.element.wordpress.Client.prototype.getTerms">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>getTerms
+        <span class="apidocSignatureSpan">( taxonomy, filter, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTerms = function ( taxonomy, filter, fn ) {
+		if ( typeof filter === &#x22;function&#x22; ) {
+			fn = filter;
+			filter = {};
+		}
+
+		if ( filter.hideEmpty ) {
+			filter.hide_empty = filter.hideEmpty;
+			delete filter.hideEmpty;
+		}
+
+		if ( filter.orderby ) {
+			filter.orderby = fieldMap.array( [ filter.orderby ], &#x22;term&#x22; )[ 0 ];
+		}
+
+		this.authenticatedCall( &#x22;wp.getTerms&#x22;, taxonomy, filter, function( error, terms ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, terms.map(function( term ) {
+				return fieldMap.from( term, &#x22;term&#x22; );
+			}));
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Gets a taxonomy term by ID.
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `id`: The ID of the term to get.
+* `callback` (`function( error, term )`): A callback to invoke when the API call is complete.
+* `term`: An object containing the taxonomy term data.
+
+#### client.<span class="apidocCodeKeywordSpan">getTerms</span>( taxonomy [, fields], callback )
+
+Gets all taxonomy terms.
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, terms )`): A callback to invoke when the API call is complete.
+* `terms`: An array containing the taxonomy terms.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.listMethods" id="apidoc.element.wordpress.Client.prototype.listMethods">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>listMethods
+        <span class="apidocSignatureSpan">( fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listMethods = function ( fn ) {
+		this.call( &#x22;system.listMethods&#x22;, fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  * `overwrite` (optional): Whether this file should overwrite any existing file of the same name.
+  * `postId` (optional): Which post to assign the attachment to.
+* `callback` (`function( error, file )`): A callback to invoke when the API call is complete.
+  * `file`: An object containing the file data.
+
+### Utilities
+
+#### client.<span class="apidocCodeKeywordSpan">listMethods</span>( callback )
+
+Gets a list of all avaialble methods.
+
+* `callback` (`function( error, methods )`): A callback to invoke when the API call is complete.
+  * `methods`: An array of methods.
+
+#### client.call( method [, args... ], callback )
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.newPost" id="apidoc.element.wordpress.Client.prototype.newPost">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>newPost
+        <span class="apidocSignatureSpan">( data, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">newPost = function ( data, fn ) {
+		this.authenticatedCall( &#x22;wp.newPost&#x22;, fieldMap.to( data, &#x22;post&#x22; ), fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Gets all posts, optionally filtered.
+
+* `filter` (optional): A hash of key/value pairs for filtering which posts to get.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, posts )`): A callback to invoke when the API call is complete.
+* `posts`: An array containing the posts.
+
+#### client.<span class="apidocCodeKeywordSpan">newPost</span>( data, callback )
+
+Creates a new post.
+
+* `data`: The data for the new post.
+* `callback` (`function( error, id )`): A callback to invoke when the API call is complete.
+* `id`: The ID of the new post.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.newTerm" id="apidoc.element.wordpress.Client.prototype.newTerm">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>newTerm
+        <span class="apidocSignatureSpan">( data, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">newTerm = function ( data, fn ) {
+		this.authenticatedCall( &#x22;wp.newTerm&#x22;, fieldMap.to( data, &#x22;term&#x22; ), fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Gets all taxonomy terms.
+
+* `taxonomy`: The name fo the taxonomy the term belongs to.
+* `fields` (optional): An array of fields to return.
+* `callback` (`function( error, terms )`): A callback to invoke when the API call is complete.
+* `terms`: An array containing the taxonomy terms.
+
+#### client.<span class="apidocCodeKeywordSpan">newTerm</span>( data, callback )
+
+Creates a new taxonomy term.
+
+* `data`: The data for the new taxonomy term.
+* `callback` (`function( error, id )`): A callback to invoke when the API call is complete.
+* `id`: The ID of the new taxonomy term.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.Client.prototype.uploadFile" id="apidoc.element.wordpress.Client.prototype.uploadFile">
+        function <span class="apidocSignatureSpan">wordpress.Client.prototype.</span>uploadFile
+        <span class="apidocSignatureSpan">( data, fn )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadFile = function ( data, fn ) {
+		this.authenticatedCall( &#x22;wp.uploadFile&#x22;, fieldMap.to( data, &#x22;file&#x22; ), fn );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
+
+#### client.getMediaLibrary( [filter], callback )
+
+* `filter` (optional): A hash of key/value pairs for filtering which posts to get.
+* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
+
+#### client.<span class="apidocCodeKeywordSpan">uploadFile</span>( data, callback )
+
+Uploads a file to Wordpress.
+
+* `data`: The data for the file to upload.
+* `name`: The filename.
+* `type`: The file MIME type, e.g `img/jpg`.
+* `bits`: Binary data.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wordpress.fieldMap" id="apidoc.module.wordpress.fieldMap">module wordpress.fieldMap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.fieldMap.array" id="apidoc.element.wordpress.fieldMap.array">
+        function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>array
+        <span class="apidocSignatureSpan">( data, type )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">array = function ( data, type ) {
+		var map = maps[ type ].renames;
+		return data.map(function( field ) {
+			return map[ field ];
+		});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.fieldMap.from" id="apidoc.element.wordpress.fieldMap.from">
+        function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>from
+        <span class="apidocSignatureSpan">( data, type )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from = function ( data, type ) {
+		return mapFields( data, maps[ type ].from );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wordpress.fieldMap.to" id="apidoc.element.wordpress.fieldMap.to">
+        function <span class="apidocSignatureSpan">wordpress.fieldMap.</span>to
+        <span class="apidocSignatureSpan">( data, type )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to = function ( data, type ) {
+		return mapFields( data, maps[ type ].to );
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
