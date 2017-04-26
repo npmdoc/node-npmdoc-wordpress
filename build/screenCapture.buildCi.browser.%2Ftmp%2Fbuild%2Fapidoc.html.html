@@ -473,7 +473,23 @@ client.getPosts(function( error, posts ) {
 		secure: secure
 	};
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function Client( settings ) {
+	[ "url", "username", "password" ].forEach(function( prop ) {
+		if ( !settings.hasOwnProperty( prop ) ) {
+			throw new Error( "Missing required setting: " + prop );
+		}
+	});
+
+	var parsedUrl = Client.<span class="apidocCodeKeywordSpan">parseUrl</span>( settings.url );
+	this.rpc = xmlrpc[ parsedUrl.secure ? "createSecureClient" : "createClient" ]({
+		host: settings.host || parsedUrl.host,
+		port: parsedUrl.port,
+		path: parsedUrl.path,
+		rejectUnauthorized: settings.rejectUnauthorized !== undefined ? settings.rejectUnauthorized : true,
+
+		// Always set Host header in case we're pointing to a different server
+...</pre></li>
     </ul>
 
 
@@ -1299,7 +1315,22 @@ Uploads a file to Wordpress.
 			return map[ field ];
 		});
 	}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	getPost: function( id, fields, fn ) {
+		if ( typeof fields === "function" ) {
+			fn = fields;
+			fields = null;
+		}
+
+		if ( fields ) {
+			fields = fieldMap.<span class="apidocCodeKeywordSpan">array</span>( fields, "post" );
+		}
+
+		this.authenticatedCall( "wp.getPost", id, fields, function( error, post ) {
+			if ( error ) {
+				return fn( error );
+			}
+...</pre></li>
     </ul>
 
 
@@ -1314,7 +1345,23 @@ Uploads a file to Wordpress.
     <li>description and source-code<pre class="apidocCodePre">from = function ( data, type ) {
 		return mapFields( data, maps[ type ].from );
 	}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+
+		this.authenticatedCall( "wp.getPost", id, fields, function( error, post ) {
+			if ( error ) {
+				return fn( error );
+			}
+
+			fn( null, fieldMap.<span class="apidocCodeKeywordSpan">from</span>( post, "post" ) );
+		});
+	},
+
+	getPosts: function( filter, fields, fn ) {
+		if ( typeof filter === "function" ) {
+			fn = filter;
+			fields = null;
+...</pre></li>
     </ul>
 
 
@@ -1329,7 +1376,24 @@ Uploads a file to Wordpress.
     <li>description and source-code<pre class="apidocCodePre">to = function ( data, type ) {
 		return mapFields( data, maps[ type ].to );
 	}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			fn( null, posts.map(function( post ) {
+				return fieldMap.from( post, "post" );
+			}));
+		});
+	},
+
+	newPost: function( data, fn ) {
+		this.authenticatedCall( "wp.newPost", fieldMap.<span class="apidocCodeKeywordSpan">to</span>( data, "post" ),
+fn );
+	},
+
+	// to remove a term, just set the terms and leave out the id that you want to remove
+	// to remove a custom field, pass the id with no key or value
+	editPost: function( id, data, fn ) {
+		this.authenticatedCall( "wp.editPost", id, fieldMap.to( data, "post" ), fn );
+	},
+...</pre></li>
     </ul>
 
 
