@@ -1,6 +1,6 @@
 # npmdoc-wordpress
 
-#### api documentation for  [wordpress (v1.4.0)](https://github.com/scottgonzalez/node-wordpress)  [![npm package](https://img.shields.io/npm/v/npmdoc-wordpress.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wordpress) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wordpress.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wordpress)
+#### basic api documentation for  [wordpress (v1.4.0)](https://github.com/scottgonzalez/node-wordpress)  [![npm package](https://img.shields.io/npm/v/npmdoc-wordpress.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wordpress) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wordpress.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wordpress)
 
 #### A client for working with WordPress.
 
@@ -58,7 +58,8 @@
     "scripts": {
         "test": "jshint lib/*"
     },
-    "version": "1.4.0"
+    "version": "1.4.0",
+    "bin": {}
 }
 ```
 
